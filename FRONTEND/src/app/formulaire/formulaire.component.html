@@ -1,0 +1,14 @@
+<h1>Formulaire</h1>
+<form *ngIf="!utilisateur$" (ngSubmit)="soumettre()" [formGroup]="formLogin">
+    <label for="login">Login :</label>
+    <input formControlName="login" name="login" type="text" /> <br/>
+    <label for="mdp">Mot de passe :</label>
+    <input formControlName="mdp" name="mdp" type="password" /> <br/>
+    <button>Connexion</button>
+</form>
+
+<div *ngIf="utilisateur$ | async; let utilisateur">
+    <p>
+      Bienvenue {{ utilisateur.login }}
+    </p>
+</div>
